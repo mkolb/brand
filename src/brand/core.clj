@@ -71,6 +71,7 @@
         :headers {"Content-Type" "text/plain"}
         :body (pr-str "Branding Service")})
   (GET "/site/:site" [site] (brand site))
+  (route/resources "/")
   (ANY "*" []
        (route/not-found (slurp (io/resource "404.html")))))
   
